@@ -7,29 +7,80 @@
     <style>
         body {
             display:flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            background-color: blanchedalmond;
+            padding: 0;
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .name-header {
+            background-color: darkblue;
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding-top: 4vh;
+            padding-bottom: 4vh;
+            margin-top: 0;
+        }
+        .sub-header {
+            width: 100%;
+            color: white;
+            text-align: center;
+            padding-top: 2vh;
+            padding-bottom: 2vh;
+        }
+        .skills {
+            background-color: plum;
+        }
+        .programming-languages {
+            background-color: palevioletred;
+        }
+        .projects {
+            background-color: purple;
+        }
+        p {
+            margin: 0;
+        }
+        .i-program-computers {
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid #0ff;
+            animation: typing 4s steps(19, end) infinite, blink 0.5s step-end infinite alternate;
+            display: inline-block;
+            font-family: monospace;
+        }
+
+        @keyframes typing{
+            0% {width: 0}
+            40%, 60% { width: 19ch } /* 13 characters long ("I program computers") */
+            100% {width: 0}
+        }
+
+        @keyframes blink {
+            50% {border-color: transparent}
         }
     </style>
 </head>
 <body>
-    <h1>Raghubeer Singh</h1>
-    <p>I program computers</p>
-    <h2>Skills</h2>
+    <h1 class="name-header">Raghubeer Singh</h1>
+    <p class="i-program-computers">I program computers</p>
+    <h2 class="sub-header skills">Skills</h2>
     <ul>
         <li>Mobile App Development</li>
         <li>AI/ML Development</li>
         <li>Web Development</li>
         <li>Python Scripting</li>
     </ul>
-    <h2>Programming Languages</h2>
+    <h2 class="sub-header programming-languages">Programming Languages</h2>
     <ul>
         <li>Python</li>
         <li>JavaScript</li>
         <li>Dart</li>
         <li>C++</li>
     </ul>
-    <h2>Projects</h2>
+    <h2 class="sub-header projects">Projects</h2>
     
 </body>
 </html>
