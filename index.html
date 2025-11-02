@@ -1,153 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raghubeer Singh</title>
-  <style>
-    body {
-      display:flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: blanchedalmond;
-      padding: 0;
-      margin: 0;
-      font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .name-header {
-      background-color: darkblue;
-      width: 100%;
-      color: white;
-      text-align: center;
-      padding-top: 4vh;
-      padding-bottom: 4vh;
-      margin-top: 0;
-    }
-    .sub-header {
-      width: 100%;
-      color: white;
-      text-align: center;
-      padding-top: 2vh;
-      padding-bottom: 2vh;
-    }
-    .skills {
-      background-color: plum;
-    }
-    .programming-languages {
-      background-color: palevioletred;
-    }
-    .projects {
-      background-color: purple;
-    }
-    p {
-      margin: 0;
-    }
-    .i-program-computers {
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid #0ff;
-      animation: typing 4s steps(19, end) infinite, blink 0.5s step-end infinite alternate;
-      display: inline-block;
-      font-family: monospace;
-    }
-
-    @keyframes typing{
-      0% {width: 0}
-      40%, 60% { width: 19ch }
-      100% {width: 0}
-    }
-
-    @keyframes blink {
-      50% {border-color: transparent}
-    }
-
-    .communicate {
-      background-color: rgb(66, 124, 9);
-    }
-
-    /* --- Horizontal Project Cards --- */
-    .project-container {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding: 20px;
-      background-color: lavender;
-      scroll-snap-type: x mandatory;
-    }
-    .project-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    .project-container::-webkit-scrollbar-thumb {
-      background: gray;
-      border-radius: 10px;
-    }
-    .project-card {
-      flex: 0 0 250px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      scroll-snap-align: start;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
-    .project-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .project-card .content {
-      padding: 12px;
-    }
-    .project-card h3 {
-      margin: 0;
-      font-size: 18px;
-      color: darkblue;
-    }
-    .project-card p {
-      font-size: 14px;
-      color: #333;
-      margin-top: 5px;
-    }
-  </style>
-</head>
-<body>
-  <h1 class="name-header">Raghubeer Singh</h1>
-  <p class="i-program-computers">I program computers</p>
-
-  <h2 class="sub-header skills">Skills</h2>
-  <ul>
-    <li>Mobile App Development</li>
-    <li>AI/ML Development</li>
-    <li>Web Development</li>
-    <li>Python Scripting</li>
-  </ul>
-
-  <h2 class="sub-header programming-languages">Programming Languages</h2>
-  <ul>
-    <li>Python</li>
-    <li>JavaScript</li>
-    <li>Dart</li>
-    <li>C++</li>
-  </ul>
-
-  <h2 class="sub-header projects">Projects</h2>
-  <div class="project-container">
-    <div class="project-card">
-      <img src="SOM.jpg" alt="SOM App">
-      <div class="content">
-        <h3>SOM App</h3>
-        <p>Customizable system of mosque (mosque information system)</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raghubeer Singh | AI Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="brand">Raghubeer Singh</div>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <img
+          src="https://avatars.githubusercontent.com/u/9919?s=200&v=4"
+          alt="Raghubeer Singh"
+          class="avatar"
+        />
+        <h1>Hi, I'm <span class="highlight">Raghubeer Singh</span></h1>
+        <h2><span id="typed"></span></h2>
+        <p>
+          I build smart solutions using AI, code, and creativity.<br />
+          Let's solve your toughest problems together.
+        </p>
+        <a href="#projects" class="cta">See My Work</a>
       </div>
-    </div>
-  </div>
-
-  <h2 class="sub-header communicate">Communicate</h2>
-  <a href="mailto:dev.raghubeer.singh@gmail.com">E-Mail</a>
-  <br/>
-</body>
+    </section>
+    <section id="skills" class="section">
+      <h2><i class="fas fa-bolt"></i> Skills</h2>
+      <div class="skills-list">
+        <div class="skill"><i class="fas fa-brain"></i> AI/ML Engineering</div>
+        <div class="skill"><i class="fas fa-code"></i> Python, JS, Node</div>
+        <div class="skill"><i class="fas fa-robot"></i> LLMs & Chatbots</div>
+        <div class="skill">
+          <i class="fas fa-lightbulb"></i> Problem Solving
+        </div>
+        <div class="skill">
+          <i class="fas fa-cloud"></i> Cloud AI (Azure, AWS)
+        </div>
+        <div class="skill">
+          <i class="fas fa-database"></i> Data Engineering
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="section">
+      <h2><i class="fas fa-rocket"></i> Projects</h2>
+      <div class="projects-list">
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"
+            alt="AI Code Assistant"
+          />
+          <div>
+            <h3>AI Code Assistant</h3>
+            <p>Smart code completion and review tool powered by LLMs.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
+            alt="Problem Solver Bot"
+          />
+          <div>
+            <h3>Problem Solver Bot</h3>
+            <p>
+              Conversational AI bot for instant tech support and
+              troubleshooting.
+            </p>
+          </div>
+        </div>
+        <div class="project-card">
+          <img
+            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+            alt="AI Project Generator"
+          />
+          <div>
+            <h3>AI Project Generator</h3>
+            <p>Generates unique project ideas and starter code using AI.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <form id="contactForm" autocomplete="off">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </section>
+    <footer>
+      <span>&copy; 2024 Raghubeer Singh</span>
+      <span class="footer-links">
+        <a href="mailto:raghubeersingh@email.com"
+          ><i class="fas fa-envelope"></i
+        ></a>
+        <a href="https://github.com/" target="_blank"
+          ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://linkedin.com/" target="_blank"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      </span>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
