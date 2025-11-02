@@ -94,11 +94,11 @@ document.querySelectorAll("section").forEach((section) => {
 
 // Typing effect for hero section
 const typedStrings = [
-  "AI Developer",
-  "Problem Solver",
-  "Code Innovator",
-  "LLM Enthusiast",
-  "Your Next Collaborator",
+  "AI Generalist",
+  "Prompt Engineer",
+  "Automation Enthusiast",
+  "Creative Prototyper",
+  "AI Communicator",
 ];
 let typedIndex = 0,
   charIndex = 0,
