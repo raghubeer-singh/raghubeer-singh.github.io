@@ -20,13 +20,12 @@ const portfolioData = {
             badge: "Background",
             title: "My Journey",
             description:
-              "Started coding in C++ and Python, evolved into building scalable web applications and distributed systems.",
+              "Started computer programming with Scratch and love Web Development",
           },
           {
             badge: "Education",
-            title: "Computer Science",
-            description:
-              "B.Tech in Computer Science & Engineering. Focused on Algorithms, OS, and Database Systems.",
+            title: "Data Science and Programming",
+            description: "Foundation in Data Science and Programming",
           },
           {
             badge: "Philosophy",
