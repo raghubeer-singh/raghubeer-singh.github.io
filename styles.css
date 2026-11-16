@@ -2,16 +2,19 @@
   box-sizing: border-box;
 }
 
+html,
 body {
+  height: 100dvh;
+  width: 100vw;
   background: #141512;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   margin: 0;
+  padding: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  overflow-x: hidden;
+  overflow: hidden;
   color: white;
 }
 
@@ -73,8 +76,7 @@ body {
 .carousel-stage {
   position: relative;
   width: 100vw;
-  height: 88vh;
-  margin-top: 4vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +104,7 @@ body {
   position: absolute;
   width: 50vw;
   max-width: 900px;
-  height: 75vh;
+  height: 75dvh;
   min-height: 450px;
 
   background: linear-gradient(135deg, #2d6a8e, #4895b8);
@@ -179,16 +181,16 @@ body {
 }
 
 .card h2 {
-  margin: 0 0 16px;
-  font-size: 3.2rem;
+  margin: 0 0 12px;
+  font-size: 2.8rem;
 }
 
 .card p {
-  margin: 0 0 24px;
-  font-size: 1.4rem;
-  line-height: 1.5;
+  margin: 0 0 18px;
+  font-size: 1.25rem;
+  line-height: 1.45;
   opacity: 0.9;
-  max-width: 80%;
+  max-width: 85%;
 }
 
 .action-hint {
@@ -237,11 +239,36 @@ body {
   right: 17vw;
 }
 
+/* Fixed Mascot on Bottom Left */
+.mascot {
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+  height: 68dvh;
+  width: auto;
+  max-width: 45vw;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: 25;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.75));
+  transition: transform 0.3s ease;
+}
+
+/* Card Artwork Below Main Heading */
+.card-img {
+  height: 24vh;
+  max-height: 210px;
+  width: auto;
+  margin: 4px 0 18px;
+  object-fit: cover;
+}
+
 /* Mobile Adjustments */
 @media (max-width: 768px) {
   .top-bar {
     padding: 0 16px;
-    top: 16px;
+    top: 14px;
   }
   .back-btn {
     padding: 8px 16px;
@@ -251,16 +278,33 @@ body {
     font-size: 0.85rem;
   }
   .card {
-    width: 82vw;
-    height: 68vh;
-    padding: 24px;
+    width: 84vw;
+    height: 64dvh;
+    min-height: unset;
+    padding: 20px;
+  }
+  .card-badge {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
   }
   .card h2 {
-    font-size: 2.1rem;
+    font-size: 1.9rem;
+    margin-bottom: 10px;
+  }
+  .card-img {
+    height: 18dvh;
+    max-height: 140px;
+    margin: 2px 0 12px;
   }
   .card p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     max-width: 95%;
+    margin-bottom: 14px;
+  }
+  .action-hint {
+    font-size: 0.85rem;
+    padding: 6px 14px;
   }
   .card.prev {
     transform: translateX(-48vw) scale(0.75);
@@ -280,25 +324,12 @@ body {
     height: 44px;
     font-size: 20px;
   }
-}
-
-/* Fixed Mascot on Bottom Left */
-.mascot {
-  position: fixed;
-  bottom: 0;
-  left: 20px;
-  height: 68vh; /* Much larger: covers nearly 70% of screen height */
-  width: auto;
-  z-index: 25;
-  pointer-events: none; /* Still lets you click the left arrow & card behind him */
-  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.75));
-  transition: transform 0.3s ease;
-}
-
-/* Adjust mascot size on mobile so it stays big without blocking card text */
-@media (max-width: 768px) {
   .mascot {
     left: 4px;
-    height: 36vh;
+    bottom: 0;
+    height: 28dvh;
+    max-width: 38vw;
+    object-fit: contain;
+    object-position: bottom left;
   }
 }

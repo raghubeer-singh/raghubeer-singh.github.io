@@ -9,6 +9,9 @@ const portfolioData = {
       description:
         "Full-stack software engineer passionate about clean architecture and interactive web experiences.",
       hint: "Click to explore bio & background →",
+      bg: "linear-gradient(135deg, #13223d, #2a5298)",
+      border: "#4facfe",
+      image: "assets/cards/about.png",
       children: {
         id: "about",
         title: "Home / About Me",
@@ -40,6 +43,9 @@ const portfolioData = {
       description:
         "Explore full-stack apps, open-source tools, and system-level builds.",
       hint: "Click to view projects →",
+      bg: "linear-gradient(135deg, #551b50, #2c2a98)",
+      border: "#4facfe",
+      image: "assets/cards/projects.png",
       children: {
         id: "projects",
         title: "Home / Projects",
@@ -93,6 +99,9 @@ const portfolioData = {
       description:
         "Languages, frameworks, and tools I use to bring ideas to production.",
       hint: "Click to inspect skills →",
+      bg: "linear-gradient(135deg, #133d27, #078b5b)",
+      border: "#4facfe",
+      image: "assets/cards/techstack.png",
       children: {
         id: "skills",
         title: "Home / Tech Stack",
@@ -124,6 +133,9 @@ const portfolioData = {
       description:
         "Interested in collaborating or hiring? Let’s start a conversation.",
       hint: "Click to reach out →",
+      bg: "linear-gradient(135deg, #13223d, #982a5b)",
+      border: "#4facfe",
+      image: "assets/cards/contact.png",
       children: {
         id: "contact",
         title: "Home / Contact",
@@ -194,12 +206,18 @@ function renderLevel() {
     const card = document.createElement("div");
     card.className = "card";
 
+    const cardBg = item.bg || currentLevel.bg;
+    const cardBorder = item.border || currentLevel.border;
+    if (cardBg) card.style.background = cardBg;
+    if (cardBorder) card.style.borderColor = cardBorder;
+
     const hasAction = Boolean(item.children || item.url);
     if (hasAction) card.classList.add("clickable");
 
     card.innerHTML = `
       <div class="card-badge">${item.badge}</div>
       <h2>${item.title}</h2>
+      ${item.image ? `<img src="${item.image}" alt="${item.title}" class="card-img">` : ""}
       <p>${item.description}</p>
       ${item.hint ? `<div class="action-hint">${item.hint}</div>` : ""}
       ${item.url && !item.hint ? `<div class="action-hint">Click to open link ↗</div>` : ""}
