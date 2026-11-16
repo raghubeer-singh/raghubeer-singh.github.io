@@ -144,20 +144,20 @@ const portfolioData = {
             title: "Open Source",
             description:
               "Check out my repositories, contributions, and daily commit streak.",
-            url: "https://github.com",
+            url: "https://github.com/raghubeer-singh/",
           },
           {
             badge: "LinkedIn",
             title: "Professional Network",
             description:
-              "Connect with me for software engineering roles and tech discussions.",
-            url: "https://linkedin.com",
+              "Connect with me for computer programming roles and tech discussions.",
+            url: "https://www.linkedin.com/in/sdewithraghubeer/",
           },
           {
             badge: "Email",
             title: "Direct Message",
-            description: "Send an email directly to hello@yourdomain.com.",
-            url: "mailto:hello@yourdomain.com",
+            description: "Send an email directly to raghubeer.jsr@gmail.com.",
+            url: "mailto:raghubeer.jsr@gmail.com",
           },
         ],
       },
