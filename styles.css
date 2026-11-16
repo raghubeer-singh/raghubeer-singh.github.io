@@ -1,0 +1,304 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #141512;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  color: white;
+}
+
+/* Top Navigation / Back Bar */
+.top-bar {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  max-width: 100vw;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 30;
+}
+
+.back-btn {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-4px);
+}
+
+.back-btn.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.5px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* Carousel Stage */
+.carousel-stage {
+  position: relative;
+  width: 100vw;
+  height: 88vh;
+  margin-top: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Fade transition when switching levels */
+.carousel-stage.switching {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.cards-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  position: absolute;
+  width: 50vw;
+  max-width: 900px;
+  height: 75vh;
+  min-height: 450px;
+
+  background: linear-gradient(135deg, #2d6a8e, #4895b8);
+  border: 4px solid #6b9e66;
+  border-radius: 32px;
+  padding: 48px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+
+  transition:
+    transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1),
+    opacity 0.5s ease,
+    filter 0.5s ease,
+    border-color 0.3s ease;
+
+  opacity: 0;
+  transform: translateX(0) scale(0.6);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Center Active Card */
+.card.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 10;
+  pointer-events: auto;
+  filter: blur(0);
+}
+
+.card.active.clickable {
+  cursor: pointer;
+}
+
+.card.active.clickable:hover {
+  transform: translateX(0) scale(1.02);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85);
+}
+
+/* Side Cards */
+.card.prev {
+  opacity: 0.35;
+  transform: translateX(-38vw) scale(0.75);
+  z-index: 5;
+  filter: blur(1.5px);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.card.next {
+  opacity: 0.35;
+  transform: translateX(38vw) scale(0.75);
+  z-index: 5;
+  filter: blur(1.5px);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Card Content Styling */
+.card-badge {
+  background: #e2a03f;
+  color: #141512;
+  font-weight: 900;
+  padding: 8px 20px;
+  border-radius: 16px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.card h2 {
+  margin: 0 0 16px;
+  font-size: 3.2rem;
+}
+
+.card p {
+  margin: 0 0 24px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  max-width: 80%;
+}
+
+.action-hint {
+  margin-top: auto;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 18px;
+  border-radius: 20px;
+  color: #e2a03f;
+  font-weight: 600;
+}
+
+/* Navigation Arrows */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  background: rgba(20, 21, 18, 0.65);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 26px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.hidden {
+  display: none;
+}
+
+.prev-btn {
+  left: 17vw;
+}
+.next-btn {
+  right: 17vw;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .top-bar {
+    padding: 0 16px;
+    top: 16px;
+  }
+  .back-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  .breadcrumb {
+    font-size: 0.85rem;
+  }
+  .card {
+    width: 82vw;
+    height: 68vh;
+    padding: 24px;
+  }
+  .card h2 {
+    font-size: 2.1rem;
+  }
+  .card p {
+    font-size: 1.1rem;
+    max-width: 95%;
+  }
+  .card.prev {
+    transform: translateX(-48vw) scale(0.75);
+  }
+  .card.next {
+    transform: translateX(48vw) scale(0.75);
+  }
+  .prev-btn {
+    left: 3vw;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+  .next-btn {
+    right: 3vw;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+  }
+}
+
+/* Fixed Mascot on Bottom Left */
+.mascot {
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+  height: 68vh; /* Much larger: covers nearly 70% of screen height */
+  width: auto;
+  z-index: 25;
+  pointer-events: none; /* Still lets you click the left arrow & card behind him */
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.75));
+  transition: transform 0.3s ease;
+}
+
+/* Adjust mascot size on mobile so it stays big without blocking card text */
+@media (max-width: 768px) {
+  .mascot {
+    left: 4px;
+    height: 36vh;
+  }
+}
